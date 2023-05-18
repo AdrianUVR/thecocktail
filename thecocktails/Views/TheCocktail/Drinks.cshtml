@@ -1,0 +1,73 @@
+﻿@model thecocktails.Models.TheCocktail
+@{
+    ViewData["Title"] = "Drinks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Drinks</h1>
+<link rel="stylesheet" href="~/css/cards.css" asp-append-version="true" />
+@*
+@foreach (thecocktails.Models.TheCocktail movie in Model.TheCocktails)
+{
+    <div class="card">
+        <div class="box">
+            <div class="content">
+                <img src="@movie.Imagen" style="width:60%" alt="Spinning glass cube">
+                <h3>@movie.Nombre</h3>
+                <a href="@Url.Action("AddFavoriteMovie", "Movie", new { idDrink = movie.idDrink })">Añadir a Favoritos</a>
+            </div>
+        </div>
+    </div>
+
+
+}*@
+
+@using (Html.BeginForm("Drinks", "TheCocktail", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+        {
+
+      
+                <div class="col-md-3">
+
+                    @Html.TextBoxFor(model => model.busqueda,"busqueda", new { @class = "form-control", @id = "txtbusqueda"  })
+                    @Html.ValidationMessageFor(model => model.busqueda)
+
+                </div>
+         
+        }
+
+   
+        <div class="row">
+
+               @foreach (thecocktails.Models.TheCocktail movie in Model.TheCocktails)
+{
+
+
+
+
+
+             <div class="col-md-2">
+            <div class="nft">
+                <div class='main'>
+                    <img class='tokenImage' src="@movie.Imagen" style="width:90%" alt="" />
+                    <h2>@movie.Nombre</h2>
+                    <p class='description'>@movie.Instrucciones</p>
+                    <div class='tokenInfo'>
+                    </div>
+                    <hr />
+
+                </div>
+                        </div>
+
+    </div>
+
+
+
+}
+
+        </div>
+     
+
+ 
+       
+
